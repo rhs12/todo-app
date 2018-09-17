@@ -2,7 +2,7 @@
 <section class="todoapp">
   <header class="header form-group text-center text-primary">
     <h1>Todos</h1>
-    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title">
+    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
     <button class="add" (click)="addTodo()"> <i class="fa fa-plus"></i></button>
   </header>
   <section class="todoapp" *ngIf="todos.length > 0">
