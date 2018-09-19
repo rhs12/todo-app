@@ -1,0 +1,12 @@
+.data {
+  margin-top: 1em;
+}
+
+.data li {
+  background: #fff;
+  border-left: 4px solid #F97300;
+  padding: 1em;
+  margin: 1em auto;
+  color: #666;
+  font-family: "Raleway";
+}
