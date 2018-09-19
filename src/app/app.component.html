@@ -1,15 +1,8 @@
 <div class="container">
   <section class="todoapp">
-    <header class="header form-group text-center text-primary">
-      <h1>To-Do List</h1>
-      <div class="input-group mb-3">
-        <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
-        <div class="input-group-append">
-          <span class="input-group-btn">
-              <button class="form-control" (click)="addTodo()"> <i class="fa fa-plus"></i></button></span>
-        </div>
-      </div>
-    </header>
+    <!-- header is now replaced with app-todo-list-header -->
+    <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
+
     <section class="todoapp" *ngIf="todos.length > 0">
       <div class="data">
         <ul class="list-unstyled">
