@@ -1,25 +1,30 @@
 <div class="container">
-<section class="todoapp">
-  <header class="header form-group text-center text-primary">
-    <h1>Todos</h1>
-    <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
-    <button class="add" (click)="addTodo()"> <i class="fa fa-plus"></i></button>
-  </header>
-  <section class="todoapp" *ngIf="todos.length > 0">
-    <div class="data">
-    <ul class="list-unstyled">
-      <li *ngFor="let todo of todos" [class.completed]="todo.complete">
-        <div class="view ">
-          <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
-          <label >{{todo.title}}</label>
-          <i (click)="removeTodo(todo)" class="material-icons">delete</i>
+  <section class="todoapp">
+    <header class="header form-group text-center text-primary">
+      <h1>To-Do List</h1>
+      <div class="input-group mb-3">
+        <input class="form-control" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
+        <div class="input-group-append">
+          <span class="input-group-btn">
+              <button class="form-control" (click)="addTodo()"> <i class="fa fa-plus"></i></button></span>
         </div>
-      </li>
-    </ul>
-  </div>
+      </div>
+    </header>
+    <section class="todoapp" *ngIf="todos.length > 0">
+      <div class="data">
+        <ul class="list-unstyled">
+          <li *ngFor="let todo of todos" [class.completed]="todo.complete">
+            <div class="view ">
+              <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+              <label>{{todo.title}}</label>
+              <i (click)="removeTodo(todo)" class="material-icons">delete</i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <footer class="footer text-center" *ngIf="todos.length > 0">
+      <span class="todo-count "><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
+    </footer>
   </section>
-  <footer class="footer text-center" *ngIf="todos.length > 0">
-    <span class="todo-count "><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
-  </footer>
-</section>
 </div>
