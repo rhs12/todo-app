@@ -9,23 +9,23 @@ export class TodoDataService {
   constructor(private api: ApiService) { }
 
   // Simulate POST /todos
-  addTodo(todo: Todo): TodoDataService {
+  addTodo(todo: Todo): Observable<Todo> {
     return this.api.createTodo(todo);
   }
 
-  deleteTodoById(id: number): TodoDataService {
+  deleteTodoById(todoId: number): Observable<Todo> {
     return this.api.deleteTodoById(todoId);
   }
 
-  updateTodoById(id: number, values: Object = {}): Todo {
+  updateTodo(todo: Todo): Observable<Todo> {
     return this.api.updateTodo(todo);
   }
 
-  getAllTodos(): Todo[] {
+  getAllTodos(): Observable<Todo[]> {
     return this.api.getAllTodos();
   }
 
-  getTodoById(id: number): Todo {
+  getTodoById(todoId: number): Observable<Todo> {
     return this.api.getTodoById(todoId);
   }
 

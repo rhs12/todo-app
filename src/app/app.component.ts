@@ -19,11 +19,9 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     this.todoDataService
       .getAllTodos()
-      .subscribe(
-        (todos) => {
-          this.todos = todos;
-        }
-      );
+      .subscribe((todos) => {
+        this.todos = todos;
+      });
   }
 
   onAddTodo(todo: Todo) {
@@ -33,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   onToggleTodoComplete(todo: Todo) {
-    this.todoDataService.toggleTodoComplete(todo).subscribe((updatedTodo) => { todo = updateTodo });
+    this.todoDataService.toggleTodoComplete(todo).subscribe((updatedTodo) => { todo = updatedTodo });
   }
 
   onRemoveTodo(todo: Todo) {
