@@ -31,7 +31,7 @@ export class TodoDataService {
 
   toggleTodoComplete(todo: Todo) {
     todo.complete = !todo.complete;
-    return this.api.updateTodo(todo);
+    return this.updateTodo(todo);
   }
 
 }
