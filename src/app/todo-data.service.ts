@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Todo } from './todo';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/delay';
 
 @Injectable()
 export class TodoDataService {
@@ -22,7 +23,7 @@ export class TodoDataService {
   }
 
   getAllTodos(): Observable<Todo[]> {
-    return this.api.getAllTodos();
+    return this.api.getAllTodos().delay(3000);
   }
 
   getTodoById(todoId: number): Observable<Todo> {
