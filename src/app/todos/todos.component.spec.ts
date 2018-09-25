@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodosComponent } from './todos.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TodoDataService } from '../todo-data.service';
+import { ApiService } from '../api.service';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;

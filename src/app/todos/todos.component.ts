@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../todo-data.service';
 import { Todo } from '../todo';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -12,16 +13,17 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[] = [];
 
-  constructor(private todoDataService: TodoDataService) {
+  constructor(private todoDataService: TodoDataService, private route: ActivatedRoute) {
 
   }
 
   public ngOnInit() {
-    this.todoDataService
-      .getAllTodos()
-      .subscribe((todos) => {
-        this.todos = todos;
-      });
+    this.route.data
+        .map((data) => data['todos'])
+        .subscribe(
+          (todos) => {
+            this.todos = todos;
+        });
   }
 
   onAddTodo(todo: Todo) {
@@ -31,11 +33,11 @@ export class TodosComponent implements OnInit {
   }
 
   onToggleTodoComplete(todo: Todo) {
-    this.todoDataService.toggleTodoComplete(todo).subscribe((updatedTodo) => { todo = updatedTodo });
+    this.todoDataService.toggleTodoComplete(todo).subscribe((updatedTodo) => { todo = updatedTodo; });
   }
 
   onRemoveTodo(todo: Todo) {
-    this.todoDataService.deleteTodoById(todo.id).subscribe((_) => { this.todos = this.todos.filter((t) => t.id !== todo.id) });
+    this.todoDataService.deleteTodoById(todo.id).subscribe((_) => { this.todos = this.todos.filter((t) => t.id !== todo.id); });
   }
 
 }
