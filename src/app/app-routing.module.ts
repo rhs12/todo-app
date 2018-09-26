@@ -21,7 +21,10 @@ const routes: Routes = [
     component: TodosComponent,
     canActivate: [
       CanActivateTodosGuard
-    ]
+    ],
+    resolve: {
+      todos: TodosResolver
+    }
   },
   {
     path: '**',
