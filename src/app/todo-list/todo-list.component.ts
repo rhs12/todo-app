@@ -9,7 +9,7 @@ import { Todo } from '../todo';
 export class TodoListComponent {
 
   @Input()
-  todos: Todo[];
+  todos: Todo[] = [];
 
   @Output()
   remove: EventEmitter<Todo> = new EventEmitter();
@@ -19,11 +19,11 @@ export class TodoListComponent {
 
   constructor() { }
 
-  onToggleTodoComplete(todo: Todo){
+  onToggleTodoComplete(todo: Todo) {
     this.toggleComplete.emit(todo);
   }
 
-  onRemoveTodo(todo: Todo){
+  onRemoveTodo(todo: Todo) {
     this.remove.emit(todo);
   }
 
